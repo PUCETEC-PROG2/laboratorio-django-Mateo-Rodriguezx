@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Añadir Pokémon</p>
+
+<form method = "post" enctype="multipart/form-data">
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">Añadir</button>
+</form>
+
+<a href="{% url 'pokedex:index' %}">Volver</a>
+{% endblock %}
