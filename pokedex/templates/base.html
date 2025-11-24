@@ -17,6 +17,12 @@
         <div class="bg-primary text-white p-4 text-center">
             <img src="{% static 'logo.png' %}" alt="Pokedex Logo" class="img-fluid">
         </div>
+        {% if user.is_authenticated %} 
+            <a href="{% url 'logout' %}" >Salir</a>
+        {% else %}
+            <a href="{% url 'pokedex:login' %}" >Iniciar sesión</a>
+        {% endif %}
+
         {% block content %}{% endblock content %}
     </div>
 </body>
