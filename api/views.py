@@ -12,9 +12,9 @@ class PokemonViewSet(viewsets.ModelViewSet):
     required_scopes = ['write']
     
     def get_permissions(self):
-        if self.request.method in ['GET', 'POST', 'PUT', 'DELETE']:
-            return [IsAuthenticated(), TokenHasScope()]
-        return [AllowAny()]
+        if self.request.method == 'GET':
+            return [AllowAny()]
+        return [IsAuthenticated(), TokenHasScope()]
 
 
 class TrainerViewSet(viewsets.ModelViewSet):
@@ -25,6 +25,6 @@ class TrainerViewSet(viewsets.ModelViewSet):
     required_scopes = ['write']
 
     def get_permissions(self):
-        if self.request.method in ['GET', 'POST', 'PUT', 'DELETE']:
+            if self.request.method == 'GET':
+                return [AllowAny()]
             return [IsAuthenticated(), TokenHasScope()]
-        return [AllowAny()]
