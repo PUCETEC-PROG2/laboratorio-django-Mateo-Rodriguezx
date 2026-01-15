@@ -1,9 +1,27 @@
 {% extends "base.html" %}
+
 {% block content %}
-<p>El entrenador es: <strong>{{ trainer | capfirst }}</strong></p>
-<h3>Detalles de entrenadores </h3>
-<ul>
-    <li>Nivel: {{trainer.level}} </li>
-    <li>Fecha de nacimiento: {{trainer.birth_date}}</li>
+<h2 class="mt-4">Detalle del Pokémon</h2>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        <strong>Nombre:</strong> {{ pokemon.name|capfirst }}
+    </li>
+    <li class="list-group-item">
+        <strong>Tipo:</strong> {{ pokemon.type }}
+    </li>
+    <li class="list-group-item">
+        <strong>Peso:</strong> {{ pokemon.weight }}
+    </li>
+    <li class="list-group-item">
+        <strong>Altura:</strong> {{ pokemon.height }}
+    </li>
+    <li class="list-group-item">
+        <strong>Entrenador:</strong> {{ pokemon.trainer }}
+    </li>
 </ul>
+
+<a href="{% url 'pokedex:pokemons' %}" class="btn btn-secondary mt-3">
+    Volver
+</a>
 {% endblock content %}

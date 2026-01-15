@@ -24,12 +24,12 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="{ url 'pokedex:index'}">Pokemons</a>
-      <a class="nav-item nav-link" href="{ url 'pokedex:trainers'}">Entrenadores</a>
+      <a class="nav-item nav-link" href="{% url 'pokedex:index' %}">Pokemons</a>
+      <a class="nav-link" href="{% url 'pokedex:index' %}">Inicio</a>
       {% if not user.is_authenticated %} 
         <a class="nav-item nav-link" href="{% url 'pokedex:login' %}">Iniciar sesión</a>
       {% else %}
-        <a class="nav-item nav-link disabled" href="{% url 'logout' %}">Cerrar sesión</a>
+        <a class="nav-link" href="{% url 'logout' %}">Cerrar sesión</a>
       {% endif %}
     </div>
   </div>
